@@ -48,6 +48,9 @@
     <ClCompile Include="..\Classes\LoadingScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\HelpScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -87,6 +90,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\LoadingScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HelpScene.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,14 +1,6 @@
 #ifndef __GAME_PLAY_SCENE_H__
 #define __GAME_PLAY_SCENE_H__
 
-#include "cocos2d.h"
-#include "Enemy.h"
-#include "Fighter.h"
-#include "Bullet.h"
-#include "GameOverScene.h"
-
-#include "SystemHeader.h"
-
 #define GameSceneNodeTagStatusBarFighterNode		301
 #define GameSceneNodeTagStatusBarLifeNode			302
 #define GameSceneNodeTagStatusBarScore				303
@@ -24,6 +16,14 @@
 // 初始玩家生命值
 #define GameSceneFighterLife                        5
 
+#include "cocos2d.h"
+#include "Enemy.h"
+#include "Fighter.h"
+#include "Bullet.h"
+#include "GameOverScene.h"
+
+#include "SystemHeader.h"
+
 // 敌人被击毁时获得的分数
 typedef enum
 {
@@ -33,17 +33,18 @@ typedef enum
 	EnemyPlanet_Score = 20
 }EnemyScores;
 
-class GamePlayLayer :public cocos2d::Layer
+class GamePlayLayer : public cocos2d::Layer
 {
 private:
-	Fighter* fighter;
+	Fighter * fighter;
 	cocos2d::Menu* menu;
 
-	int score;   //分数
-	int scorePlaceholder;//记录0~999分数
+	int score;				// 分数
+	int scorePlaceholder;	// 记录0~999分数
 
 	cocos2d::EventListenerTouchOneByOne * touchFighterListener;
 	cocos2d::EventListenerPhysicsContact * contactListener;
+
 public:
 	static cocos2d::Scene* createScene();
 

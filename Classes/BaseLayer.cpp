@@ -2,7 +2,7 @@
 
 USING_NS_CC;
 
-bool  BaseLayer::init()
+bool BaseLayer::init()
 {
 	if (!Layer::init())
 	{
@@ -15,32 +15,33 @@ bool  BaseLayer::init()
 	auto bg = TMXTiledMap::create("map/red_bg.tmx");
 	this->addChild(bg);
 
-	//眼镜精灵
+	// 眼镜精灵
 	auto glassesSprite = Sprite::createWithSpriteFrameName("setting.glasses.png");
 	glassesSprite->setPosition(Vec2(visibleSize.width - glassesSprite->getContentSize().width / 2, 160));
-	addChild(glassesSprite);
+	this->addChild(glassesSprite);
 
-	//手套精灵
+	// 手套精灵
 	auto handSprite = Sprite::createWithSpriteFrameName("setting.hand.png");
 	handSprite->setPosition(Vec2(handSprite->getContentSize().width / 2, 60));
-	addChild(handSprite);
+	this->addChild(handSprite);
 
-	//ok菜单
+	// Ok菜单
 	auto okNormal = Sprite::createWithSpriteFrameName("setting.button.ok.png");
 	auto okSelected = Sprite::createWithSpriteFrameName("setting.button.ok-on.png");
-	auto okMenuItem = MenuItemSprite::create(okNormal, okSelected,
-		CC_CALLBACK_1(BaseLayer::menuBackCallback, this));
-	auto mu = Menu::create(okMenuItem, NULL);
-	mu->setPosition(Vec2(visibleSize.width - mu->getContentSize().width / 2 + 60, 60));
-	addChild(mu);
+
+	auto okMenuItem = MenuItemSprite::create(okNormal, okSelected, CC_CALLBACK_1(BaseLayer::menuBackCallback, this));
+	auto menu = Menu::create(okMenuItem, NULL);
+	menu->setPosition(Vec2(visibleSize.width - menu->getContentSize().width / 2 + 60, 60));
+	this->addChild(menu);
 
 	return true;
-
 }
 
-void BaseLayer::menuBackCallback(Ref* pSender)
+// ok菜单回调函数
+void BaseLayer::menuBackCallback(Ref * pSender)
 {
 	Director::getInstance()->popScene();
+
 	if (UserDefault::getInstance()->getBoolForKey(SOUND_KEY))
 	{
 		SimpleAudioEngine::getInstance()->playEffect(sound_1);

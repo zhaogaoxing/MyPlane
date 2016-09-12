@@ -1,7 +1,8 @@
 #include "GamePlayScene.h"
 
 USING_NS_CC;
-//创建具有物理世界的场景
+
+// 创建具有物理世界的场景
 Scene* GamePlayLayer::createScene()
 {
 	auto scene = Scene::createWithPhysics();
@@ -24,10 +25,13 @@ bool GamePlayLayer::init()
 	{
 		return false;
 	}
+
 	this->initBG();
+
 	return true;
 }
 
+// 初始化背景
 void GamePlayLayer::initBG()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -41,7 +45,7 @@ void GamePlayLayer::initBG()
 	ps->setPosition(Vec2(visibleSize.width, visibleSize.height) / 2);
 	this->addChild(ps, 0, GameSceneNodeBatchTagBackground);
 
-	//背景精灵1
+	// 背景精灵1
 	auto sprite1 = Sprite::createWithSpriteFrameName("gameplay.bg.sprite-1.png");
 	sprite1->setPosition(Vec2(-50, -50));
 	addChild(sprite1, 0, GameSceneNodeBatchTagBackground);

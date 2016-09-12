@@ -1,5 +1,5 @@
-#ifndef _BASE_LAYER_H_
-#define _BASE_LAYER_H
+#ifndef __BASE_LAYER_H__
+#define __BASE_LAYER_H__
 
 #include "cocos2d.h"
 #include "SystemHeader.h"

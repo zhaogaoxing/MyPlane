@@ -1,11 +1,15 @@
 #include "HomeScene.h"
+
 USING_NS_CC;
 
 Scene* HomeMenuLayer::createScene()
 {
 	auto scene = Scene::create();
+
 	auto layer = HomeMenuLayer::create();
+
 	scene->addChild(layer);
+
 	return scene;
 }
 
@@ -15,7 +19,9 @@ bool HomeMenuLayer::init()
 	{
 		return false;
 	}
+
 	Size visibleSize = Director::getInstance()->getVisibleSize();
+
 	auto bg = TMXTiledMap::create("map/red_bg.tmx");
 	this->addChild(bg);
 
@@ -24,24 +30,24 @@ bool HomeMenuLayer::init()
 	this->addChild(top);
 
 	auto end = Sprite::createWithSpriteFrameName("home-end.png");
-	end->setPosition(Vec2(visibleSize.width / 2, end->getContentSize().height));
+	end->setPosition(Vec2(visibleSize.width / 2, end->getContentSize().height / 2));
 	this->addChild(end);
 
-	//开始菜单
+	// 开始菜单
 	auto startSpriteNormal = Sprite::createWithSpriteFrameName("home.button.start.png");
 	auto startSpriteSelected = Sprite::createWithSpriteFrameName("home.button.start-on.png");
 	auto startMenuItem = MenuItemSprite::create(startSpriteNormal, startSpriteSelected,
 		CC_CALLBACK_1(HomeMenuLayer::menuItemCallback, this));
 	startMenuItem->setTag(ActionType::MenuItemStart);
 
-	//设置菜单
+	// 设置菜单
 	auto settingSpriteNormal = Sprite::createWithSpriteFrameName("home.button.setting.png");
 	auto settingSpriteSelected = Sprite::createWithSpriteFrameName("home.button.setting-on.png");
 	auto settingMenuItem = MenuItemSprite::create(settingSpriteNormal, settingSpriteSelected,
 		CC_CALLBACK_1(HomeMenuLayer::menuItemCallback, this));
 	settingMenuItem->setTag(ActionType::MenuItemSetting);
 
-	//帮助菜单
+	// 帮助菜单
 	auto helpSpriteNormal = Sprite::createWithSpriteFrameName("home.button.help.png");
 	auto helpSpriteSelected = Sprite::createWithSpriteFrameName("home.button.help-on.png");
 	auto helpMenuItem = MenuItemSprite::create(helpSpriteNormal, helpSpriteSelected,
@@ -77,10 +83,10 @@ void HomeMenuLayer::menuItemCallback(Ref* pSender)
 		log("SettingCallback");
 		scene = TransitionFade::create(1.0f, SettingLayer::createScene());
 		break;
-	/*case ActionType::MenuItemHelp:
+	case ActionType::MenuItemHelp:
 		log("HelpCallback");
 		scene = TransitionFade::create(1.0f, HelpLayer::createScene());
-		break;*/
+		break;
 	default:
 		break;
 	}
@@ -90,7 +96,6 @@ void HomeMenuLayer::menuItemCallback(Ref* pSender)
 		Director::getInstance()->pushScene(scene);
 	}
 }
-
 
 void HomeMenuLayer::onEnterTransitionDidFinish()
 {
