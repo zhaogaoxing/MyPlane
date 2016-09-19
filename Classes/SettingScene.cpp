@@ -27,7 +27,7 @@ bool SettingLayer::init()
 	top->setPosition(Vec2(visibleSize.width / 2, visibleSize.height - top->getContentSize().height / 2));
 	this->addChild(top);
 
-	//“Ù–ß
+	// “Ù–ß
 	auto soundOnSprite = Sprite::createWithSpriteFrameName("setting.check-on.png");
 	auto soundOffSprite = Sprite::createWithSpriteFrameName("setting.check-off.png");
 	auto soundOnMenuItem = MenuItemSprite::create(soundOnSprite, NULL);

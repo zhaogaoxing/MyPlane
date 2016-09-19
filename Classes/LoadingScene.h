@@ -12,12 +12,12 @@ private:
 	void delayCall(float dt);
 	int m_nNumberOfLoaded; // 纹理图片的个数
 public:
-	static cocos2d::Scene* createScene();
+    static cocos2d::Scene* createScene();
 
-	virtual bool init();
+    virtual bool init();
 	virtual void onExit();
-
-	CREATE_FUNC(Loading);
+    
+    CREATE_FUNC(Loading);
 };
 
 #endif

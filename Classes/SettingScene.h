@@ -6,7 +6,7 @@
 #include "MyUtility.h"
 #include "SystemHeader.h"
 
-class SettingLayer :public BaseLayer
+class SettingLayer : public BaseLayer
 {
 public:
 	static cocos2d::Scene* createScene();
@@ -18,7 +18,5 @@ public:
 
 	CREATE_FUNC(SettingLayer);
 };
-
-
 
 #endif

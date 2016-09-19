@@ -32,7 +32,7 @@ bool GameOverLayer::init()
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 
-	// 添加背景地图
+	// 添加背景地图.
 	auto bg = TMXTiledMap::create("map/blue_bg.tmx");
 	this->addChild(bg);
 
@@ -41,13 +41,13 @@ bool GameOverLayer::init()
 	ps->setPosition(Vec2(visibleSize.width, visibleSize.height - 200) / 2);
 	this->addChild(ps);
 
-	// 创建精灵
+	// 精灵
 	auto top = Sprite::createWithSpriteFrameName("gameover.top.png");
 	top->setAnchorPoint(Vec2(0, 0));
 	top->setPosition(Vec2(0, visibleSize.height - top->getContentSize().height));
 	this->addChild(top);
 
-	// 储存最高分
+	// 存储最高分
 	UserDefault *defaults = UserDefault::getInstance();
 	int highScore = defaults->getIntegerForKey(HIGHSCORE_KEY);
 	if (highScore < score) {

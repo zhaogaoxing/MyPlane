@@ -2,17 +2,18 @@
 
 USING_NS_CC;
 
-Fighter* Fighter::createWithSpriteFrameName(const char * spriteFrameName)
+Fighter * Fighter::createWithSpriteFrameName(const char * spriteFrameName)
 {
-	Fighter* fighter = new Fighter();
+	Fighter * fighter = new Fighter();
+
 	if (fighter && fighter->initWithSpriteFrameName(spriteFrameName))
 	{
 		fighter->autorelease();
 
-		//添加烟雾特效
+		// 创建飞机烟雾粒子效果
 		ParticleSystem * ps = ParticleSystemQuad::create("particle/fire.plist");
 
-		//在飞机下面
+		// 在飞机下面
 		ps->setPosition(Vec2(fighter->getContentSize().width / 2, 0));
 		ps->setRotation(180.0f);
 		ps->setScale(0.5f);
@@ -42,32 +43,33 @@ Fighter* Fighter::createWithSpriteFrameName(const char * spriteFrameName)
 	return NULL;
 }
 
-//重写设置飞机的位置
+// 重写设置飞机位置
 void Fighter::setPosition(const cocos2d::Vec2& newPosition)
 {
-	Size screneSize = Director::getInstance()->getVisibleSize();
+	Size screenSize = Director::getInstance()->getVisibleSize();
 
 	float halfWidth = this->getContentSize().width / 2;
 	float halfHeight = this->getContentSize().height / 2;
 	float pos_x = newPosition.x;
 	float pos_y = newPosition.y;
 
-	//判断飞机位置， 防止超出屏幕
+	// 判断飞机位置，防止超出屏幕
 	if (pos_x < halfWidth)
 	{
 		pos_x = halfWidth;
 	}
-	else if (pos_x>screneSize.width - halfWidth)
+	else if (pos_x>(screenSize.width - halfWidth))
 	{
-		pos_x = screneSize.width - halfWidth;
+		pos_x = screenSize.width - halfWidth;
 	}
+
 	if (pos_y < halfHeight)
 	{
 		pos_y = halfHeight;
 	}
-	else if (pos_y>screneSize.height - halfHeight)
+	else if (pos_y>(screenSize.height - halfHeight))
 	{
-		pos_y = screneSize.height - halfHeight;
+		pos_y = screenSize.height - halfHeight;
 	}
 
 	Sprite::setPosition(Vec2(pos_x, pos_y));

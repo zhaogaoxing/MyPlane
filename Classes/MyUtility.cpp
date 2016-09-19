@@ -1,6 +1,6 @@
 #include "MyUtility.h"
 
-//获取时间
+// 获得当前系统时间
 string MyUtility::getCurrentTime()
 {
 	time_t t;
@@ -11,8 +11,8 @@ string MyUtility::getCurrentTime()
 	return timeStr;
 }
 
-//在win32下，把GBK转化为UTF-8
-string MyUtility::gbk_2_utf_8(const string text)
+// 在Win32平台下，将GBK编码转换为UTF-8
+string MyUtility::gbk_2_utf8(const string text)
 {
 	return text;
 }

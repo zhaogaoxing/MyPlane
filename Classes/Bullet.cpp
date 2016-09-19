@@ -24,7 +24,7 @@ Bullet* Bullet::createWithSpriteFrameName(const char * spriteFrameName)
 	}
 
 	CC_SAFE_DELETE(bullet);
-
+	
 	return nullptr;
 }
 
@@ -36,6 +36,7 @@ void Bullet::shootBulletFromFighter(Fighter * fighter)
 	this->unscheduleUpdate();
 	this->scheduleUpdate();
 }
+
 // 根据速度修改炮弹位置，超出屏幕则移除
 void Bullet::update(float dt)
 {

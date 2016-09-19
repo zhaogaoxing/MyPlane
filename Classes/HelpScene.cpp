@@ -5,7 +5,7 @@ USING_NS_CC;
 Scene* HelpLayer::createScene()
 {
 	auto scene = Scene::create();
-
+	
 	auto layer = HelpLayer::create();
 
 	scene->addChild(layer);
@@ -35,7 +35,7 @@ bool HelpLayer::init()
 	this->addChild(txtTest, 1);
 
 	// "测试"下文字
-	auto test = Label::createWithTTF("Mr.quan", "fonts/hanyi.ttf", 18);
+	auto test = Label::createWithTTF("zhaogaoxing", "fonts/hanyi.ttf", 18);
 	test->setAnchorPoint(Vec2(0, 0));
 	test->setColor(Color3B(198, 12, 0));
 	test->setPosition(txtTest->convertToWorldSpace(Vec2(0, -20)));
@@ -49,7 +49,7 @@ bool HelpLayer::init()
 	this->addChild(txtMusic, 1);
 
 	// "音乐"下文字
-	auto music = Label::createWithTTF("Mr.quan", "fonts/hanyi.ttf", 18);
+	auto music = Label::createWithTTF("zhaogaoxing", "fonts/hanyi.ttf", 18);
 	music->setAnchorPoint(Vec2(0, 0));
 	music->setColor(Color3B(198, 12, 0));
 	music->setPosition(txtMusic->convertToWorldSpace(Vec2(0, -20)));
@@ -63,7 +63,7 @@ bool HelpLayer::init()
 	this->addChild(txtSound, 1);
 
 	// "音效"下文字
-	auto sound = Label::createWithTTF("Mr.quan", "fonts/hanyi.ttf", 18);
+	auto sound = Label::createWithTTF("zhaogaoxing", "fonts/hanyi.ttf", 18);
 	sound->setColor(Color3B(198, 12, 0));
 	sound->setAnchorPoint(Vec2(0, 0));
 	sound->setPosition(txtSound->convertToWorldSpace(Vec2(0, -20)));
@@ -77,7 +77,7 @@ bool HelpLayer::init()
 	this->addChild(txtInfoService, 1);
 
 	// "信息与服务"下文字
-	auto infoService = Label::createWithTTF("cocos2d-x-3.12", "fonts/hanyi.ttf", 18);
+	auto infoService = Label::createWithTTF("cocos2d-x", "fonts/hanyi.ttf", 18);
 	infoService->setColor(Color3B(198, 12, 0));
 	infoService->setAnchorPoint(Vec2(0, 0));
 	infoService->setPosition(txtInfoService->convertToWorldSpace(Vec2(0, -20)));

@@ -41,7 +41,7 @@ bool BaseLayer::init()
 void BaseLayer::menuBackCallback(Ref * pSender)
 {
 	Director::getInstance()->popScene();
-
+	
 	if (UserDefault::getInstance()->getBoolForKey(SOUND_KEY))
 	{
 		SimpleAudioEngine::getInstance()->playEffect(sound_1);

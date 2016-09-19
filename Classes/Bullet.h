@@ -6,7 +6,7 @@
 
 class Bullet : public cocos2d::Sprite
 {
-	CC_SYNTHESIZE(cocos2d::Vec2, velocity, Velocity);	//速度
+	CC_SYNTHESIZE(cocos2d::Vec2, velocity, Velocity);	// 速度
 
 public:
 	static Bullet * createWithSpriteFrameName(const char * spriteFrameName); // 静态创建函数
@@ -15,6 +15,5 @@ public:
 
 	virtual void update(float dt);
 };
-
 
 #endif

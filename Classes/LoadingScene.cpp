@@ -4,24 +4,24 @@ USING_NS_CC;
 
 Scene* Loading::createScene()
 {
-	auto scene = Scene::create();
+    auto scene = Scene::create();
+    
+    auto layer = Loading::create();
 
-	auto layer = Loading::create();
+    scene->addChild(layer);
 
-	scene->addChild(layer);
-
-	return scene;
+    return scene;
 }
 
 bool Loading::init()
 {
-	if (!Layer::init())
-	{
-		return false;
-	}
-
-	auto visibleSize = Director::getInstance()->getVisibleSize();
-	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    if ( !Layer::init() )
+    {
+        return false;
+    }
+    
+    auto visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("texture/loading_texture.plist");
 
@@ -48,18 +48,18 @@ bool Loading::init()
 	sprite->runAction(RepeatForever::create(action));
 	//////////////////动画结束///////////////////
 
-	//初始化加载纹理图片的个数
+	// 初始化加载纹理图片的个数
 	m_nNumberOfLoaded = 0;
 
 	// 加载纹理图片
-	Director::getInstance()->getTextureCache()->addImageAsync("texture/home_texture.png",
+	Director::getInstance()->getTextureCache()->addImageAsync("texture/home_texture.png", 
 		CC_CALLBACK_1(Loading::loadingTextureCallback, this));
 	Director::getInstance()->getTextureCache()->addImageAsync("texture/setting_texture.png",
 		CC_CALLBACK_1(Loading::loadingTextureCallback, this));
 	Director::getInstance()->getTextureCache()->addImageAsync("texture/gameplay_texture.png",
 		CC_CALLBACK_1(Loading::loadingTextureCallback, this));
 
-	return true;
+    return true;
 }
 
 // 加载纹理对应的帧缓存
@@ -72,7 +72,7 @@ void Loading::loadingTextureCallback(Texture2D * texture)
 	case 1:
 		SpriteFrameCache::getInstance()->addSpriteFramesWithFile("texture/setting_texture.plist", texture); break;
 	case 2:
-		SpriteFrameCache::getInstance()->addSpriteFramesWithFile("texture/gameplay_texture.plist", texture);
+		SpriteFrameCache::getInstance()->addSpriteFramesWithFile("texture/gameplay_texture.plist", texture); 
 		this->schedule(schedule_selector(Loading::delayCall), 1, 1, 3);
 		break;
 	default:
@@ -80,7 +80,7 @@ void Loading::loadingTextureCallback(Texture2D * texture)
 	}
 }
 
-// 延时调用函数，进入主菜单
+// 延时调用函数,进入主菜单
 void Loading::delayCall(float dt)
 {
 	auto scene = HomeMenuLayer::createScene();
@@ -91,7 +91,7 @@ void Loading::onExit()
 {
 	Layer::onExit();
 
-	// 清楚Loading场景精灵帧缓存和纹理缓存
+	// 清除Loading场景精灵帧缓存和纹理缓存
 	SpriteFrameCache::getInstance()->removeSpriteFramesFromFile("texture/loading_texture.plist");
 	Director::getInstance()->getTextureCache()->removeTextureForKey("texture/loading_texture.png");
 

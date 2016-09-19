@@ -7,7 +7,7 @@
 
 class GameOverLayer : public cocos2d::Layer
 {
-	// 当前玩家的分数
+	// 当前得分
 	int score;
 public:
 	GameOverLayer(int score);
